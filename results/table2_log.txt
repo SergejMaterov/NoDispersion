@@ -1,0 +1,54 @@
+############################################################
+# 1-2. Exact equivariance check (Table 2, rows 1-2)
+############################################################
+n points checked        : 2957
+beta                     : 0.6
+predecessor identity preserved (fraction): 1.000000  (expect 1.0 exactly)
+max |u_boost - relativistic_velocity_addition(u_orig)| : 4.371e-13  (expect ~machine precision)
+
+############################################################
+# 3. Naive test: spurious violation from box-boundary artifact (row 3)
+############################################################
+NAIVE TEST (no margin control) -- expect a SPURIOUS apparent violation
+----------------------------------------------------------------------
+n(A, native) = 3172   n(B, boosted) = 3252
+mean(u, native)         = -0.0132
+mean(u, boosted, naive) = 0.1564   <-- shifted away from 0: artifact, not physics
+KS two-sample statistic : D=0.0965, p=1.807e-13
+
+See corrected_invariance_test.py for the resolution: restricting
+query points to a region well inside the sampling box removes this
+effect entirely.
+
+############################################################
+# 4-5. Corrected test with margin control + baseline (rows 4-5)
+############################################################
+CORRECTED TEST (interior margin control)
+----------------------------------------------------------------------
+n(A, native) = 4000   n(B, boosted) = 4000   n(C, native) = 4000
+mean(uA)          = 0.0011   std(uA)          = 0.8986
+mean(uB, boosted) = 0.0006   std(uB, boosted) = 0.8966
+
+KS (native vs. boosted) : D=0.0217, p=0.3005
+KS (native vs. native)  : D=0.0190, p=0.4658   <- baseline
+
+Result: boosted-frame distribution is statistically indistinguishable
+from the native distribution, consistent with Lemma D.
+
+############################################################
+# 6. Chebyshev bound sanity check (Section 6.5 addendum to Theorem 1)
+############################################################
+N=5000, trials=50000, v=1.0
+empirical std(Phi_N) = 71.0159   theoretical sqrt(N*v) = 70.7107
+
+   k   Chebyshev bound 1/k^2  empirical P(|Phi_N|>k*sigma)
+   1               100.0000%                      32.0600%
+   2                25.0000%                       4.5880%
+   3                11.1111%                       0.2980%
+   5                 4.0000%                       0.0000%
+  10                 1.0000%                       0.0000%
+
+Expectation: empirical probability <= Chebyshev bound at every k
+(the bound is distribution-free and therefore conservative/loose;
+this is expected and does not indicate an error).
+
