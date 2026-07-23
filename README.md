@@ -103,4 +103,4 @@ indistinguishable from the native-vs-native baseline, while the naive one is not
 ## Citing
 
 If this computational appendix is cited independently of the paper, please cite the paper itself
-(DOI: 10.5281/zenodo.21200543) and reference this repository as its computational supplement.
+(DOI: [10.5281/zenodo.21515893](https://doi.org/10.5281/zenodo.21515893) and reference this repository as its computational supplement.
