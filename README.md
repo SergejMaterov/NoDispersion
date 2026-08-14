@@ -3,8 +3,8 @@
 This repository reproduces every numerical claim in **Section 6 ("Boost Invariance of Decorrelation,
 Strengthened: A Rigorous Sub-Case and an Explicit Conjecture")** of:
 
-> S. Materov, *On the Absence of Automatic Linear Lorentz-Violating Dispersion from Discreteness
-> Alone*, 2026.
+> [S. Materov, *On the Absence of Automatic Linear Lorentz-Violating Dispersion from Discreteness
+> Alone*, 2026.](https://doi.org/10.5281/zenodo.21915193)
 
 It supersedes the original Theorem 2 ("proof sketch", not independently checked) with:
 
@@ -103,4 +103,4 @@ indistinguishable from the native-vs-native baseline, while the naive one is not
 ## Citing
 
 If this computational appendix is cited independently of the paper, please cite the paper itself
-(DOI: [10.5281/zenodo.21915193](https://doi.org/10.5281/zenodo.21915193) and reference this repository as its computational supplement.
+(DOI: [10.5281/zenodo.21915193](https://doi.org/10.5281/zenodo.21915193)) and reference this repository as its computational supplement.
